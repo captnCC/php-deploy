@@ -14,4 +14,4 @@ RUN curl -o /tmp/composer-setup.php https://getcomposer.org/installer \
   && docker-php-ext-configure gd \
     --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ --with-png-dir=/usr/include/ \
   && docker-php-ext-install gd mbstring zip \
-  && docker-php-ext-enable mbstring gd zip
+  && docker-php-ext-enable mbstring zip
