@@ -12,5 +12,10 @@ RUN curl -o /tmp/composer-setup.php https://getcomposer.org/installer \
   && php -r "if (hash('SHA384', file_get_contents('/tmp/composer-setup.php')) !== trim(file_get_contents('/tmp/composer-setup.sig'))) { unlink('/tmp/composer-setup.php'); echo 'Invalid installer' . PHP_EOL; exit(1); }"\
   && php /tmp/composer-setup.php --no-ansi --install-dir=/usr/bin --filename=composer \
   && docker-php-ext-install gd mbstring zip \
+  && docker-php-ext-configure gd \
+    --with-freetype-dir=/usr/lib/x86_64-linux-gnu/ \
+    --with-jpeg-dir=/usr/lib/x86_64-linux-gnu/ \
+    --with-xpm-dir=/usr/lib/x86_64-linux-gnu/ \
+    --with-vpx-dir=/usr/lib/x86_64-linux-gnu/ \
   && docker-php-ext-enable mbstring gd zip
-
+  
