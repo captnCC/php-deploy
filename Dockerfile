@@ -1,7 +1,7 @@
 FROM php:7.1-cli
 
 # Install our basic tools ssh & rsync
-RUN apt-get update -yqq && apt-get install openssh-client bash rsync git libpng-dev libjpeg -yqq
+RUN apt-get update -yqq && apt-get install openssh-client bash rsync git libpng-dev libjpeg-dev zlib1g -yqq
 
 # Disable host key checking for ssh
 RUN mkdir /root/.ssh
