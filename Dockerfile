@@ -1,7 +1,17 @@
-FROM php:7.1-cli
+FROM php:7.3-cli
+LABEL maintainer="Johannes Kees <johannes@lets-byte.it>"
 
 # Install our basic tools ssh & rsync
-RUN apt-get update -yqq && apt-get install -y openssh-client bash rsync git libfreetype6-dev libjpeg62-turbo-dev libmcrypt-dev libpng-dev zlib1g
+RUN apt-get update -yqq && apt-get install -y \
+    git \
+    zlib1g \
+    openssh-client \
+    bash \
+    rsync \
+    libfreetype6-dev \
+    libjpeg62-turbo-dev \
+    libmcrypt-dev \
+    libpng-dev
 
 # Disable host key checking for ssh
 RUN mkdir /root/.ssh
