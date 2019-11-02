@@ -13,6 +13,8 @@ RUN apt-get update -yqq && apt-get install -y \
     libmcrypt-dev \
     libpng-dev
 
+RUN pecl install mcrypt-1.0.3
+
 # Disable host key checking for ssh
 RUN mkdir /root/.ssh
 COPY config /root/.ssh/config
@@ -27,6 +29,7 @@ RUN curl -o /tmp/composer-setup.php https://getcomposer.org/installer \
   && docker-php-ext-install mbstring \
   && docker-php-ext-install zip \
   && docker-php-ext-enable mbstring \
-  && docker-php-ext-enable zip \
+  && docker-php-ext-enable zip
+  && docker-php-ext-enable mcrypt 
 
 # Just a test for auto-build with dockerhub
