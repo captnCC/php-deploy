@@ -28,3 +28,5 @@ RUN curl -o /tmp/composer-setup.php https://getcomposer.org/installer \
   && docker-php-ext-install zip \
   && docker-php-ext-enable mbstring \
   && docker-php-ext-enable zip \
+
+# Just a test for auto-build with dockerhub
